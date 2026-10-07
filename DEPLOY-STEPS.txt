@@ -1,0 +1,31 @@
+REBEL INK — WEB SERVICE DEPLOY (NO BLUEPRINT)
+=============================================
+
+1. Push this folder to GitHub (server.js + package.json + public/ at repo root).
+
+2. Render → New → PostgreSQL
+   - Create free database
+   - Wait until Available
+   - Copy the "Internal Database URL"
+
+3. Render → New → Web Service
+   - Connect the same repo
+   - Build: npm install
+   - Start: npm start
+   - Free plan
+
+4. BEFORE deploying, add Environment variables:
+   DATABASE_URL        = (paste Internal Database URL)
+   JWT_SECRET          = (long random string, 32+ chars)
+   ADMIN_SETUP_TOKEN   = (long random string, 24+ chars)
+
+5. Deploy.
+
+6. Open Logs → find:
+   FIRST ADMIN SETUP REQUIRED. Open /admin-setup?token=...
+
+7. Open that URL and create your admin account.
+
+If DATABASE_URL is still missing:
+  → You forgot to add the Environment variable.
+  → Add it, then Manual Deploy → Deploy latest commit.
